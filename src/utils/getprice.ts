@@ -1,4 +1,4 @@
-import type { Car } from "./types";
+import type { Car } from "../types";
 
 /**
  * Calculate daily rent price for a car in Turkish Liras
@@ -12,7 +12,7 @@ export const getPrice = (car: Car): number => {
 
   // Year factor - newer cars cost more
   const currentYear = new Date().getFullYear();
-  const carYear = parseInt(car.year);
+  const carYear = parseInt(car?.year);
   const carAge = currentYear - carYear;
 
   if (carAge <= 1) {
@@ -46,11 +46,11 @@ export const getPrice = (car: Car): number => {
   ];
   const economyBrands = ["Dacia", "Fiat", "Renault", "Peugeot", "Citroën"];
 
-  if (luxuryBrands.includes(car.make)) {
+  if (luxuryBrands?.includes(car?.make)) {
     basePrice *= 3.5;
-  } else if (premiumBrands.includes(car.make)) {
+  } else if (premiumBrands?.includes(car?.make)) {
     basePrice *= 2.2;
-  } else if (economyBrands.includes(car.make)) {
+  } else if (economyBrands?.includes(car?.make)) {
     basePrice *= 0.9;
   }
 
@@ -72,19 +72,19 @@ export const getPrice = (car: Car): number => {
     "Special Purpose Vehicle": 1.7,
   };
 
-  if (vclassMultipliers[car.vclass]) {
+  if (vclassMultipliers[car?.vclass]) {
     basePrice *= vclassMultipliers[car.vclass];
   }
 
   // Engine size factor (displacement)
-  if (car.displ) {
-    if (car.displ >= 4.0) {
+  if (car?.displ) {
+    if (car?.displ >= 4.0) {
       basePrice *= 4; // Large engines
-    } else if (car.displ >= 2.5) {
+    } else if (car?.displ >= 2.5) {
       basePrice *= 3.3; // Medium-large engines
-    } else if (car.displ >= 1.6) {
+    } else if (car?.displ >= 1.6) {
       basePrice *= 1.8; // Medium engines
-    } else if (car.displ >= 1.0) {
+    } else if (car?.displ >= 1.0) {
       basePrice *= 1.0; // Small engines
     } else {
       basePrice *= 0.9; // Very small engines
@@ -93,8 +93,8 @@ export const getPrice = (car: Car): number => {
 
   // Fuel type factor - electric and hybrid premium
   if (
-    car.fueltype.includes("Electric") ||
-    car.fueltype.includes("Electricity")
+    car?.fueltype?.includes("Electric") ||
+    car?.fueltype?.includes("Electricity")
   ) {
     basePrice *= 1.4; // Electric cars premium
   } else if (car.fueltype.includes("Hybrid")) {
@@ -104,29 +104,29 @@ export const getPrice = (car: Car): number => {
   }
 
   // Fuel efficiency factor - more efficient cars have slight premium
-  if (car.comb08 && car.comb08 > 35) {
+  if (car?.comb08 && car?.comb08 > 35) {
     basePrice *= 1.1; // Very fuel efficient
-  } else if (car.comb08 && car.comb08 < 15) {
+  } else if (car?.comb08 && car?.comb08 < 15) {
     basePrice *= 1.2; // Gas guzzlers are specialty vehicles
   }
 
   // Transmission factor
-  if (car.trany && car.trany.includes("Automatic")) {
+  if (car?.trany && car?.trany?.includes("Automatic")) {
     basePrice *= 1.2; // Automatic transmission premium
   }
 
   // Drive type factor
-  if (car.drive === "All-Wheel Drive" || car.drive === "4-Wheel Drive") {
+  if (car?.drive === "All-Wheel Drive" || car?.drive === "4-Wheel Drive") {
     basePrice *= 1.2; // AWD/4WD premium
   }
 
   // Turbo/Supercharger factor
-  if (car.tcharger === "T" || car.scharger === "S") {
+  if (car?.tcharger === "T" || car?.scharger === "S") {
     basePrice *= 1.25; // Forced induction premium
   }
 
   // Special features factor
-  if (car.startstop === "Y") {
+  if (car?.startstop === "Y") {
     basePrice *= 1.05; // Start-stop technology
   }
 

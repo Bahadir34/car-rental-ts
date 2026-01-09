@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 
 const Hero: FC = () => {
   return (
-    <div className="hero padding-x padding-y">
-      <div className="pt-20 xl:flex-1 max-h-[920px]">
+    <div className="hero px-5 padding-y">
+      <div className="pt-20 md:flex-1 max-h-[920px]">
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

@@ -1,0 +1,42 @@
+import React, { useEffect, type FC } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Images from "./images";
+import type { Car } from "../../types";
+import Info from "./info";
+
+interface Props {
+  car: Car;
+  isOpen: boolean;
+  close: () => void;
+}
+
+const Modal: FC<Props> = ({ isOpen, close, car }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-md grid place-items-center z-50 p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.1, y: 50 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.1, opacity: 0, y: 50 }}
+            transition={{
+              duration: 0.1,
+            }}
+            className="remove-scroll car-details-dialog-panel w-[95%] sm:min-w-[600px] min-h-[70vh]"
+          >
+            <button
+              className="car-details-close-btn cursor-pointer"
+              onClick={close}
+            >
+              X
+            </button>
+            <Images car={car} />
+            <Info car={car} />
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default Modal;
