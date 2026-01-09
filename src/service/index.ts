@@ -6,11 +6,11 @@ export const fetchCars = async (
   year: string,
   page: string = "1"
 ): Promise<CarResponse> => {
-  let url = `${import.meta.env.VITE_API_URL}/records/?`;
+  let url = `${import.meta.env.VITE_API_URL}/records?`;
 
-  if (make) url += `refine=make:"${make}"&`;
-  if (model) url += `refine=model:"${model}"&`;
-  if (year) url += `refine=year:"${year}"&`;
+  if (make) url += `refine=make%3A${make}&`;
+  if (model) url += `refine=model%3A${model}&`;
+  if (year) url += `refine=year%3A${year}&`;
   if (page) {
     const calc = 10 * Number(page) - 10;
     url += `limit=10&offset=${calc}`;
