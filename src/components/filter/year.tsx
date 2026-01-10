@@ -18,7 +18,7 @@ const Year: FC = () => {
   };
   return (
     <form onSubmit={handleSubmit} className="flex flex-col">
-      <label htmlFor="" className="text-white font-semibold mb-2 text-sm">
+      <label htmlFor="year" className="text-white font-semibold mb-2 text-sm">
         Yıl
       </label>
 
@@ -31,7 +31,7 @@ const Year: FC = () => {
           name="year"
           className="w-32 h-[52px] px-4 glass-effect rounded-l-2xl border border-white/20 text-white placeholder-grey-light focus:border-primary-blue/50 focus:bg-white/30 transition-all duration-300"
         />
-        <button className="cursor-pointer h-[52px]  px-3 glass-effect rounded-r-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105">
+        <button name="search year" className="cursor-pointer h-[52px]  px-3 glass-effect rounded-r-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105">
           <img src="./search.svg" alt="search" className="size-6" />
         </button>
       </div>

@@ -20,7 +20,7 @@ const Card: FC<CardProps> = ({ car }) => {
 
   return (
     <>
-      <div className="car-card group">
+      <article className="car-card group">
         <h2 className="car-card-content-title">{car.model}</h2>
 
         <div className="flex mt-6 text-[19px]">
@@ -47,13 +47,14 @@ const Card: FC<CardProps> = ({ car }) => {
           className="w-full hidden group-hover:block"
         >
           <Button
+            name="more"
             type="button"
             text="Daha Fazla"
             designs="w-full text-white mt-[0.5px]"
             fn={() => setIsOpen(true)}
           />
         </motion.div>
-      </div>
+      </article>
       <Modal car={car} isOpen={isOpen} close={() => setIsOpen(false)} />
     </>
   );

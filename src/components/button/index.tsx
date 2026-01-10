@@ -6,6 +6,7 @@ interface IProp {
   designs?: string;
   disabled?: boolean;
   type: "button" | "reset" | "submit";
+
   fn?: () => void; // fonksiyon
 }
 

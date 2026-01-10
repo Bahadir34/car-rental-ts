@@ -47,6 +47,7 @@ const SearchBar: FC = () => {
             Marka
           </label>
           <ReactSelect
+            inputId="make"
             value={make ? { value: make, label: make } : null}
             options={options}
             placeholder="Marka seçiniz..."
@@ -82,7 +83,10 @@ const SearchBar: FC = () => {
                 value={model || ""}
               />
             </div>
-            <button className="cursor-pointer  p-3 glass-effect rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <button
+              name="search button"
+              className="cursor-pointer  p-3 glass-effect rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            >
               <img src="./search.svg" alt="search" className="size-6" />
             </button>
           </div>

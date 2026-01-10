@@ -17,7 +17,7 @@ const Hero: FC = () => {
         <motion.p
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
           className="hero-subtitle"
         >
           Altın standartta hizmetle unutulmaz bir yolculuğa hazır mısın? Araç
@@ -27,22 +27,27 @@ const Hero: FC = () => {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
           className="hero-subtitle"
         >
-          <Button type="button" text="Arabaları Keşfet" designs="mt-12" />
+          <Button
+            name="hero button"
+            type="button"
+            text="Arabaları Keşfet"
+            designs="mt-12"
+          />
         </motion.div>
       </div>
       <motion.div
         initial={{ x: 300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="flex justify-center items-center relative"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/30 to-accent/30 rounded-full blur-3xl -z-10 animate-pulse" />
         <img
           src="/hero.png"
-          alt=""
+          alt="hero image"
           className="object-contain xl:w-[600px] xl:h-[477px] drop-shadow-xl"
         />
       </motion.div>

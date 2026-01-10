@@ -20,12 +20,10 @@ const Info: FC<Props> = ({ car }) => {
             key={index}
             className="flex justify-between items-center py-3 px-4 mb-3 glass-dark rounded-xl border border-white/10"
           >
-            <span className="capitalize text-grey-light font-semibold">
-              {k}
-            </span>
-            <span className="font-semibold capitalize text-white">
+            <p className="capitalize text-grey-light font-semibold">{k}</p>
+            <p className="font-semibold capitalize text-white">
               {v === "Y" || v === "T" ? "Var" : v === "N" ? "Yok" : v || "-"}
-            </span>
+            </p>
           </div>
         );
       })}

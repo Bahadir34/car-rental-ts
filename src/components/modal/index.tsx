@@ -25,6 +25,7 @@ const Modal: FC<Props> = ({ isOpen, close, car }) => {
             className="remove-scroll car-details-dialog-panel w-[95%] sm:min-w-[600px] min-h-[70vh]"
           >
             <button
+              name="close"
               className="car-details-close-btn cursor-pointer"
               onClick={close}
             >

@@ -12,7 +12,7 @@ const Images: FC<Props> = ({ car }) => {
       <div className="w-full h-60 ">
         <img
           src={getImage(car, undefined, true)}
-          alt=""
+          alt={car.make + "-" + car.model + "-hero"}
           className="w-full h-full object-contain rounded-md"
         />
       </div>
@@ -21,7 +21,7 @@ const Images: FC<Props> = ({ car }) => {
         <div className="rounded-xl flex-1 flex relative h-30 bg-primary-blue/30">
           <img
             src={getImage(car, "28")}
-            alt=""
+            alt={"28-" + car.make + "-" + car.model}
             className="w-full h-full object-contain"
           />
         </div>
@@ -29,7 +29,7 @@ const Images: FC<Props> = ({ car }) => {
         <div className="rounded-xl flex-1 flex relative h-30 bg-primary-blue/30">
           <img
             src={getImage(car, "09")}
-            alt=""
+            alt={"09-" + car.make + "-" + car.model}
             className="w-full h-full object-contain"
           />
         </div>
@@ -37,7 +37,7 @@ const Images: FC<Props> = ({ car }) => {
         <div className="rounded-xl flex-1 flex relative h-30 bg-primary-blue/30">
           <img
             src={getImage(car, "13")}
-            alt=""
+            alt={"13-" + car.make + "-" + car.model}
             className="w-full h-full object-contain"
           />
         </div>

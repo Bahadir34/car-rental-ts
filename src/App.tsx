@@ -1,10 +1,10 @@
-import React, { type FC } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { use, type FC } from "react";
+import { BrowserRouter, Route, Routes, useNavigation } from "react-router-dom";
 import Home from "./pages/home";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import NotFound from "./pages/not-found";
- 
+import Redirect from "./pages/redirect-element";
 
 const App: FC = () => {
   return (
@@ -23,7 +23,8 @@ const App: FC = () => {
         <Header />
         <main className="relative z-10 flex-1">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Redirect/>}></Route>
+            <Route path="/cars" element={<Home />}></Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
